@@ -1,7 +1,7 @@
 # Minecraft Bedrock Server Addon Installer
 A command line tool to help install Minecraft Bedrock (`.mcpack` and `.mcaddon`) addons on a Minecraft Bedrock server (because while it's simple, it's also complicated, time consuming and not well documented)
 
-![Java](https://img.shields.io/badge/Java-17.0.3.1-orange) ![Apache-Maven](https://img.shields.io/badge/Apache-Maven-3.8.5-orange)
+![Java](https://img.shields.io/badge/Java-17.0.3.1-orange) ![Apache Maven](https://img.shields.io/badge/Maven-3.8.5-orange)
 
 Addons should be located in the `addons` within the server folder.  The tool should be run from the root directory of the server folder.
 
