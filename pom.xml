@@ -35,7 +35,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>org.kaizen.sofx.mcaddoninstaller.Main</mainClass>
+                            <mainClass>org.kaizen.mcaddoninstaller</mainClass>
                         </manifest>
                     </archive>                
                 </configuration>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.kaizen.sofx.mcaddoninstaller;
+package org.kaizen.mcaddoninstaller.core;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.StringJoiner;
@@ -12,16 +12,27 @@ import java.util.StringJoiner;
  *
  * @author shane.whitehead
  */
-public class WorldPackEntry {
-    @SerializedName(value="pack_id")
-    private String packId;
+public class Module {
+    @SerializedName(value="type")
+    private String type;
+    @SerializedName(value="uuid")
+    private String uuid;
     @SerializedName(value="version")
     private int[] version;
+    
+    private transient Manifest manifest;
 
-    public WorldPackEntry(Manifest manifest) {
-        packId = manifest.getHeader().getUUID();
-        version = manifest.getHeader().getVersion();
+    public String getType() {
+        return type;
     }
+
+    public String getUUID() {
+        return uuid;
+    }
+
+    public int[] getVersion() {
+        return version;
+    }    
 
     public String versionValue() {
         StringJoiner joiner = new StringJoiner(".");
@@ -31,4 +42,12 @@ public class WorldPackEntry {
         return joiner.toString();
     }
 
+    protected void setManifest(Manifest manifest) {
+        this.manifest = manifest;
+    }
+
+    public Manifest getManifest() {
+        return manifest;
+    }
+    
 }

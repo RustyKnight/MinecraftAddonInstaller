@@ -13,7 +13,7 @@
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
-                <exec.mainClass>org.kaizen.sofx.mcaddoninstaller.Main</exec.mainClass>
+                <exec.mainClass>org.kaizen.mcaddoninstaller.Main</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <exec.workingdir>/Users/shane.whitehead/Downloads/Minecraft/Bedrock/test</exec.workingdir>
             </properties>
@@ -31,7 +31,7 @@
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
-                <exec.mainClass>org.kaizen.sofx.mcaddoninstaller.Main</exec.mainClass>
+                <exec.mainClass>org.kaizen.mcaddoninstaller.Main</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
                 <exec.workingdir>/Users/shane.whitehead/Downloads/Minecraft/Bedrock/test</exec.workingdir>
@@ -49,7 +49,7 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.mainClass>org.kaizen.sofx.mcaddoninstaller.Main</exec.mainClass>
+                <exec.mainClass>org.kaizen.mcaddoninstaller.Main</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <exec.appArgs></exec.appArgs>
                 <exec.workingdir>/Users/shane.whitehead/Downloads/Minecraft/Bedrock/test</exec.workingdir>

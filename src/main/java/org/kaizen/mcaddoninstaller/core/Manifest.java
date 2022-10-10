@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.kaizen.sofx.mcaddoninstaller;
+package org.kaizen.mcaddoninstaller.core;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
@@ -17,32 +15,22 @@ import java.io.Reader;
  * @author shane.whitehead
  */
 public class Manifest {
-    @SerializedName(value="format_version")
+    @SerializedName(value = "format_version")
     private String formatVersion;
-    @SerializedName(value="header")
+    @SerializedName(value = "header")
     private Header header;
-    @SerializedName(value="modules")
+    @SerializedName(value = "modules")
     private Module[] modules;
-    @SerializedName(value="dependencies")
+    @SerializedName(value = "dependencies")
     private Dependency[] dependencies;
-    
-    private transient File sourceFile;
-    
-    public static Manifest load(File source) throws IOException {
+
+    protected static <T extends Manifest> T load(Reader reader, Class<T> classOf) throws IOException {
         Gson gson = new Gson();
-        try (Reader reader = new FileReader(source)) {
-            Manifest manifest = gson.fromJson(reader, Manifest.class);
-            manifest.setSourceFile(source);
-            return manifest;
+        T manifest = gson.fromJson(reader, classOf);
+        for (Module module : manifest.getModules()) {
+            module.setManifest(manifest);
         }
-    }
-
-    public File getSourceFile() {
-        return sourceFile;
-    }
-
-    protected void setSourceFile(File sourceFile) {
-        this.sourceFile = sourceFile;
+        return manifest;
     }
 
     public String getFormatVersion() {
@@ -60,7 +48,7 @@ public class Manifest {
     public Dependency[] getDependencies() {
         return dependencies;
     }
-    
+
     public boolean isResourcePack() {
         for (Module module : getModules()) {
             if (module.getType().equals("resources")) {
@@ -69,7 +57,7 @@ public class Manifest {
         }
         return false;
     }
-    
+
     public boolean isBehviourPack() {
         for (Module module : getModules()) {
             if (module.getType().equals("data")) {
@@ -78,5 +66,5 @@ public class Manifest {
         }
         return false;
     }
-    
+
 }
