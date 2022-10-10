@@ -7,7 +7,17 @@ Addons should be located in the `addons` folder within the server folder.  The t
 
 The tool will scan the `addons` directory, unpack each addon and list them, allowing you to select which addons should be installed (one or more at a time).
 
-The tool will 
+# List
+The tool will:
+
+* Scan the `resource_packs` and `behavior_packs`
+* Scan the `world_resource_packs.json` and `world_behavior_packs.json` files in the `worlds/{current world}` directory
+* Combine the two results and generate a list of installed addons
+
+If an addon can not be found in either `resource_packs` or `behavior_packs`, it will be displayed as "unknown" along with it's pack id (uuid)
+
+# Installing
+The tool will:
 
 * Install the selected addons in the `resource_packs` and/or `behaviours_pack` (depending on the addon on type)
 * Update the `world_behaviour_packs.json` and/or `world_resource_packs.json` in the `worlds/{current level}` directory
@@ -15,8 +25,15 @@ The tool will
 
 Once installed, you should restart the Minecraft Bedrock Server and take note to see if the `invalid_known_packs.json` file is created or not.  If created, you have a problem and you're going to have to spend the time figuring out which plugin has screwed up.
 
-# Not included...
+# Remove
+The tool will:
 
-* Removal of addons.  Not "hard", just not something I need ... yet
-* Listing installed addons (based on `valid_known_packs.json`)
-* Listing "bad" addons (based on `invalid_known_packs.json`)
+* Scan the `resource_packs` and `behavior_packs`
+* Scan the `world_resource_packs.json` and `world_behavior_packs.json` files in the `worlds/{current world}` directory
+* Combine the two results and generate a list of installed addons
+
+If an addon can not be found in either `resource_packs` or `behavior_packs`, it will be displayed as "unknown" along with it's pack id (uuid)
+
+Selected addons will be removed from the `resource_packs`/`behavior_packs` directory and removed from the `world_resource_packs.json`/`world_behavior_packs.json` files in the `worlds/{current world}` directory
+
+Once a addon has been removed, you should restart the server
