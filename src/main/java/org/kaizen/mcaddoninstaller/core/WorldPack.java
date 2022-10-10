@@ -27,7 +27,7 @@ public class WorldPack {
     protected static String BEHAVIORS = "world_behavior_packs.json";
     
     private static WorldPack RESOURCE_PACKS;
-    private static WorldPack BEHAVIOURS_PACKS;
+    private static WorldPack BEHAVIORS_PACKS;
     
     private File sourceFile;
     private List<WorldPackEntry> entries;
@@ -45,10 +45,10 @@ public class WorldPack {
     }
     
     public static WorldPack behaviourPacks() throws IOException {
-        if (BEHAVIOURS_PACKS == null) {
-            BEHAVIOURS_PACKS = from(new File(Util.currrentLevel(), BEHAVIORS));
+        if (BEHAVIORS_PACKS == null) {
+            BEHAVIORS_PACKS = from(new File(Util.currrentLevel(), BEHAVIORS));
         }
-        return BEHAVIOURS_PACKS;
+        return BEHAVIORS_PACKS;
     }
     
     protected static WorldPack from(File sourceFile) throws IOException {
