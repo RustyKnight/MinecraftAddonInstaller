@@ -24,7 +24,7 @@ import org.kaizen.mcaddoninstaller.Util;
 public class WorldPack {
     
     protected static String RESOURCES = "world_resource_packs.json";
-    protected static String BEHAVIOURS = "world_behaviour_packs.json";
+    protected static String BEHAVIORS = "world_behavior_packs.json";
     
     private static WorldPack RESOURCE_PACKS;
     private static WorldPack BEHAVIOURS_PACKS;
@@ -46,7 +46,7 @@ public class WorldPack {
     
     public static WorldPack behaviourPacks() throws IOException {
         if (BEHAVIOURS_PACKS == null) {
-            BEHAVIOURS_PACKS = from(new File(Util.currrentLevel(), BEHAVIOURS));
+            BEHAVIOURS_PACKS = from(new File(Util.currrentLevel(), BEHAVIORS));
         }
         return BEHAVIOURS_PACKS;
     }
