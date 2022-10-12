@@ -80,15 +80,17 @@ public class Installer {
             String choice = parser.next();
             try {
                 int value = Integer.parseInt(choice);
-                if (value < 0 || value >= packs.size()) {
-                    System.out.println("Invalid chocie");
-                } else if (value == option) {
+                if (value == option) {
                     selectedPacks = new ArrayList<>(packs);
                 } else if (value == 0) {
                     selectedPacks.clear();
                 } else {
                     int index = value - 1;
-                    selectedPacks.add(packs.get(index));
+                    if (index < 0 || index > selectedPacks.size()) {
+                        System.out.println("Invalid choice ["  + value + "]");
+                    } else {
+                        selectedPacks.add(packs.get(index));
+                    }
                 }
             } catch (NumberFormatException exp) {
                 System.out.println("[" + choice + "] is not a valid choice");
